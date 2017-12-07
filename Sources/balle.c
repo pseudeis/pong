@@ -31,10 +31,9 @@ void move_balle(T_obj* j1, T_obj* j2, T_balle* balle) {
 	unsigned char old_x = balle->x;
 	unsigned char old_y = balle->y;
 
-	/* On additionne une fraction de la vitesse 
-	 * arrondie au plus proche et casté dans un char
-	 * à la position précédante*/
-
+	/* On additionne le vecteur de vitesse 
+	 * à la position précédante
+	 * position négative possible. Collisions à traiter*/
 	if (balle->spx >= 0) {
 		balle->precx += (balle->spx);
 
@@ -50,20 +49,32 @@ void move_balle(T_obj* j1, T_obj* j2, T_balle* balle) {
 
 	}
 	
-	balle->x = balle->precx / 100;
-	balle->y = balle->precy / 100;
-
 	/*on vérifie si la balle ne dépasse pas un bord
 	 *On vérifie si la balle ne dépasse pas une raquette
-	 */
-
-	/*Si la balle traverse, on gère le rebond
+	 *Si la balle traverse, on gère le rebond
 	 * GROS PAVE INCOMING
 	 */
+	/*Gestion des collisions bords*/
+	if((balle->precy<=100)||(balle->precy>=2300)){
+		balle->spy=~(balle->spy);
+		if(balle->precy<100)
+			balle->precy=100;
+		if(balle->precy>2300)
+			balle->precy=2300;
+	}
+	
+	/*Gestion des collisions raquettes*/
+	if((balle->precx<=100)||(balle->precy>=2300)){
+		
+	}
 
 	/* Quand la balle est dans une trajectoire correcte
 	 * on actualise sa position sur la console
 	 */
+
+	/*On arrondit la position de la balle pour l'affichage console*/
+	balle->x = balle->precx / 100;
+	balle->y = balle->precy / 100;
 
 	if ((old_x != balle->x) || (old_y != balle->y)) {
 		move(old_x, old_y);

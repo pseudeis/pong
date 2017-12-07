@@ -25,8 +25,8 @@ typedef struct {
 typedef struct {
 	unsigned char x;
 	unsigned char y;
-	unsigned short precx;
-	unsigned short precy;
+	signed short precx;
+	signed short precy;
 	signed short spx;
 	signed short spy;
 	unsigned char skin;

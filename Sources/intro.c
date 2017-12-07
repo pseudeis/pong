@@ -12,6 +12,10 @@ static unsigned char i;
 static unsigned char unit;
 static unsigned char dizaine;
 
+void logo(void) {
+
+}
+
 void decor(void) {
 	unsigned char i = 0;
 	for (i = 0; i < 80; i++) {
@@ -40,7 +44,7 @@ void decor(void) {
  * Souci : si on appui sur PTA2 pendant le délai, aucun effet.
  * Solution : appuyer longtemps (1 sec environ)
  */
-void decompte() {
+/*void decompte() {
 	unit = 0;
 	dizaine = 0;
 	move(compt->x - 1, compt->y);
@@ -59,4 +63,4 @@ void decompte() {
 		}
 	}
 
-}
+}*/

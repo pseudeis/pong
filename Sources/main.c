@@ -47,6 +47,9 @@
 void main(void) {
 	/* Write your local variable definition here */
 
+	T_raquette joueur_1;
+	T_raquette joueur_2;
+
 	/*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
 	PE_low_level_init();
 	/*** End of Processor Expert internal initialization.                    ***/
@@ -54,18 +57,16 @@ void main(void) {
 
 	/* Write your code here */
 	/* For example: for(;;) { } */
-	/*
-	 * INCLURE LOGO ICI
-	 */
 
+	logo();
 	
 	/*Appel de la fonction qui trace les bords dans move.c*/
 	decor();
 
 	/*Appel du compte 0->99 dans move.c*/
-	decompte();
+	/*decompte(); 	Non appelée : pas de BP.		A ACTIVER POUR LA CARTE*/
 
-	
+
 	
 	
 	/*

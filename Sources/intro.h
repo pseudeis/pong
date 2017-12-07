@@ -22,6 +22,7 @@ typedef struct {
 	unsigned char len;
 } T_raquette;
 
+void logo(void);
 void decor(void);
 void decompte(void);
 void write_raquette_up(T_raquette*);

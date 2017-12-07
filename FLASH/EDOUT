@@ -1,0 +1,52 @@
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\main.c:75:error:C1815 unit not declared (or typename)
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\main.c:76:error:C1815 dizaine not declared (or typename)
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\main.c:77:error:C2801 ';' missing
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\main.c:77:error:C1815 compt not declared (or typename)
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\main.c:77:error:C1421 Undefined class/struct/union
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\main.c:77:error:C2801 ';' missing
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\main.c:77:error:C1815 x not declared (or typename)
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\main.c:77:error:C1421 Undefined class/struct/union
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\main.c:77:error:C2801 ';' missing
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\main.c:77:error:C1815 y not declared (or typename)
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\main.c:77:error:C2801 ';' missing
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\main.c:80:error:C2801 ';' missing
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\main.c:80:error:C1421 Undefined class/struct/union
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\main.c:80:error:C2801 ';' missing
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\main.c:80:error:C1421 Undefined class/struct/union
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\main.c:80:error:C2801 ';' missing
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\main.c:80:error:C2801 ';' missing
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\main.c:82:error:C2801 ';' missing
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\main.c:84:error:C2801 ';' missing
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\main.c:85:error:C2801 ';' missing
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\main.c:85:error:C1421 Undefined class/struct/union
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\main.c:85:error:C2801 ';' missing
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\main.c:85:error:C1421 Undefined class/struct/union
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\main.c:85:error:C2801 ';' missing
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\main.c:85:error:C2801 ';' missing
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\main.c:87:error:C2801 ';' missing
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\main.c:87:error:C1421 Undefined class/struct/union
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\main.c:87:error:C2801 ';' missing
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\main.c:87:error:C1421 Undefined class/struct/union
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\main.c:87:error:C2801 ';' missing
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\main.c:87:error:C2801 ';' missing
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\main.c:96:warning:C1801 Implicit parameter-declaration for 'move_balle'
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\main.c:96:warning:C1420 Result of function-call is ignored
+e_C/manette/Project_Headers\../Sources\intro.c:54:error:C1421 Undefined class/struct/union
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\intro.c:54:error:C2801 ';' missing
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\intro.c:54:error:C1421 Undefined class/struct/union
+D:/Documents/anette/Project_Headers\../Sources\raquette.c:58:error:C2801 ';' missing
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\raquette.c:58:error:C2801 ';' missing
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\raquette.c:59:error:C2801 ';' missing
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\raquette.c:61:error:C2801 ';' missing
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\raquette.c:61:error:C1421 Undefined class/struct/union
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\raquette.c:61:error:C2801 ';' missing
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\raquette.c:61:error:C1421 Undefined class/struct/union
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\raquette.c:61:error:C2801 ';' missing
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\raquette.c:61:error:C2801 ';' missing
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\raquette.c:62:error:C2801 ';' missing
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\raquette.c:69:error:C2801 ';' missing
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\raquette.c:69:error:C1421 Undefined class/struct/union
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\raquette.c:69:error:C2801 ';' missing
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\raquette.c:69:error:C1421 Undefined class/struct/union
+D:/Documents/ESTEI/SER3/Workspace_C/manette/Project_Headers\../Sources\raquette.c:69:error:C2801 ';' missing
+INFORMATION C2: Message overflow, skipping ERROR messages

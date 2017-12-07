@@ -20,10 +20,12 @@ typedef struct {
 	unsigned char x;
 	unsigned char y;
 	unsigned char len;
-} T_raquette;
+} T_obj;
+
 
 void logo(void);
 void decor(void);
-void decompte(T_raquette* compt);
+void compte(T_obj* compt);
+void decompte(T_obj* compt);
 
 #endif /* INTRO_H_ */

@@ -10,7 +10,7 @@
 #include "raquette.h"
 #include "balle.h"
 
-void put_raquette(T_obj* j1, T_obj* j2) {
+void init_raquette(T_obj* j1, T_obj* j2) {
 	unsigned char i = 0;
 
 	/*Position de la raquette du J1*/

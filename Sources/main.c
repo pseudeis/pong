@@ -62,12 +62,12 @@ void main(void) {
 	logo();
 
 	/*Appel de la fonction qui trace les bords dans move.c*/
-	decor();
+	init_decor();
 
 	/*Appel du compte 0->99 dans move.c*/
 	compte(&compt);
 
-	put_raquette(&joueur_1, &joueur_2);
+	init_raquette(&joueur_1, &joueur_2);
 	
 	/*Appel du compte 0->99 dans move.c*/
 	decompte(&compt);

@@ -25,12 +25,14 @@ typedef struct {
 typedef struct {
 	unsigned char x;
 	unsigned char y;
-	unsigned char len;
+	signed short spx;
+	signed short spy;
+	unsigned char skin;
 } T_balle;
 
 
 void logo(void);
-void decor(void);
+void init_decor(void);
 void compte(T_obj* compt);
 void decompte(T_obj* compt);
 

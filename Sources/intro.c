@@ -18,7 +18,7 @@ void logo(void) {
 
 }
 
-void decor(void) {
+void init_decor(void) {
 	unsigned char i = 0;
 	for (i = 0; i < 80; i++) {
 		move(i, 1);

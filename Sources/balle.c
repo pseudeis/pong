@@ -55,24 +55,104 @@ void move_balle(T_obj* j1, T_obj* j2, T_balle* balle) {
 	 * GROS PAVE INCOMING
 	 */
 	/*Gestion des collisions bords*/
-	if((balle->precy<=100)||(balle->precy>=2300)){
+	if(balle->precy<=100){
 		balle->spy=~(balle->spy);
-		if(balle->precy<100)
-			balle->precy=100;
-		if(balle->precy>2300)
-			balle->precy=2300;
+		balle->precy=100;
 	}
 	
+	else if(balle->precy>=2300){
+		balle->spy=~(balle->spy);
+		balle->precy=2300;
+	}
+
+
+
 	/*Gestion des collisions raquettes*/
-	if((balle->precx<=100)||(balle->precy>=2300)){
-		
+	if(balle->precx<=500){
+		balle->precx=500;
+		balle->spx=~(balle->spx);
+		switch((balle->y)-(j1->y)){
+		case 0:
+			/*Vite vers le haut*/
+			balle->spx*=(13/10);
+			balle->spy-=20;
+			break;
+		case 1:
+			/*Un peu vers le haut*/
+			balle->spx*=(11/10);
+			balle->spy-=10;
+			break;
+		case 2:
+			/*Amorti central*/
+			balle->spx*=(9/10);
+			break;
+		case 3:
+			/*Un peu vers le bas*/
+			balle->spx*=(11/10);
+			balle->spy+=20;
+			break;
+		case 4:
+			/*Vite vers le bas*/
+			balle->spx*=(13/10);
+			balle->spy+=20;
+			break;
+		default:
+			/*BUUUUUUUUUUT*/
+			break;
+			
+		}
+		if(balle->spx>200)
+			balle->spx=200;
+		if(balle->spy>200)
+			balle->spy=200;
+		else if(balle->spy>-200)
+			balle->spy=-200;
+	}
+	else if(balle->precx>=7500){
+		balle->precx=7500;
+		balle->spx=~(balle->spx);
+		switch((balle->y)-(j1->y)){
+		case 0:
+			/*Vite vers le haut*/
+			balle->spx*=(13/10);
+			balle->spy-=20;
+			break;
+		case 1:
+			/*Un peu vers le haut*/
+			balle->spx*=(11/10);
+			balle->spy-=10;
+			break;
+		case 2:
+			/*Amorti central*/
+			balle->spx*=(9/10);
+			break;
+		case 3:
+			/*Un peu vers le bas*/
+			balle->spx*=(11/10);
+			balle->spy+=20;
+			break;
+		case 4:
+			/*Vite vers le bas*/
+			balle->spx*=(13/10);
+			balle->spy+=20;
+			break;
+		default:
+			/*BUUUUUUUUUUT*/
+			break;
+			
+		}
+		if(balle->spx>200)
+			balle->spx=200;
+		if(balle->spy>200)
+			balle->spy=200;
+		else if(balle->spy>-200)
+			balle->spy=-200;
 	}
 
 	/* Quand la balle est dans une trajectoire correcte
 	 * on actualise sa position sur la console
+	 * après avoir arrondit sa position
 	 */
-
-	/*On arrondit la position de la balle pour l'affichage console*/
 	balle->x = balle->precx / 100;
 	balle->y = balle->precy / 100;
 

@@ -67,15 +67,18 @@ void main(void) {
 	/*Appel du compte 0->99 dans move.c*/
 	compte(&compt);
 
-	init_raquette(&joueur_1, &joueur_2);
-	
+	joueur_1.x=5;
+	joueur_1.x=75;
+	init_raquette(&joueur_1);
+	init_raquette(&joueur_2);
+
 	/*Appel du compte 0->99 dans move.c*/
 	decompte(&compt);
-	
 
 	for (;;) {
 
-		move_raquette(&joueur_1, &joueur_2);
+		move_raquette1(&joueur_1);
+		move_raquette2(&joueur_2);
 		move_balle(&joueur_1, &joueur_2, &balle);
 
 	}

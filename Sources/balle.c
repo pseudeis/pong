@@ -5,6 +5,13 @@
  *      Author: Makhai
  */
 
+
+#include "bsp.h"
+#include "intro.h"
+#include "raquette.h"
+#include "balle.h"
+
+
 void move_balle(void) {
 
 }

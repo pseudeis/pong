@@ -5,7 +5,11 @@
  *      Author: Makhai
  */
 
+#include "bsp.h"
 #include "intro.h"
+#include "raquette.h"
+#include "balle.h"
+
 
 void logo(void) {
 

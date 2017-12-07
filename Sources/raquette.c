@@ -5,9 +5,10 @@
  *      Author: Makhai
  */
 
+#include "bsp.h"
 #include "intro.h"
 #include "raquette.h"
-#include "bsp.h"
+#include "balle.h"
 
 
 void put_raquette(T_raquette* j1, T_raquette* j2) {

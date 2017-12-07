@@ -18,7 +18,8 @@ void init_balle(T_balle* balle) {
 	balle->skin = 'O';
 	move(balle->x, balle->y);
 	putc('O');
-
+	balle->spx=40;
+	balle->spy=10;
 }
 
 /*
@@ -65,9 +66,13 @@ void move_balle(T_obj* j1, T_obj* j2, T_balle* balle) {
 		balle->precy=2300;
 	}
 
+	balle->x = (unsigned char) balle->precx / 100;
+	balle->y = (unsigned char) balle->precy / 100;
 
 
 	/*Gestion des collisions raquettes*/
+	
+	/*RAQUETTE 1*/
 	if(balle->precx<=500){
 		balle->precx=500;
 		balle->spx=~(balle->spx);
@@ -108,10 +113,13 @@ void move_balle(T_obj* j1, T_obj* j2, T_balle* balle) {
 		else if(balle->spy>-200)
 			balle->spy=-200;
 	}
+
+	/*RAQUETTE 2*/
+
 	else if(balle->precx>=7500){
 		balle->precx=7500;
 		balle->spx=~(balle->spx);
-		switch((balle->y)-(j1->y)){
+		switch((balle->y)-(j2->y)){
 		case 0:
 			/*Vite vers le haut*/
 			balle->spx*=(13/10);
@@ -153,8 +161,8 @@ void move_balle(T_obj* j1, T_obj* j2, T_balle* balle) {
 	 * on actualise sa position sur la console
 	 * après avoir arrondit sa position
 	 */
-	balle->x = balle->precx / 100;
-	balle->y = balle->precy / 100;
+	balle->x = (unsigned char) balle->precx / 100;
+	balle->y = (unsigned char) balle->precy / 100;
 
 	if ((old_x != balle->x) || (old_y != balle->y)) {
 		move(old_x, old_y);

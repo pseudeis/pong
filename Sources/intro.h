@@ -24,10 +24,6 @@ typedef struct {
 
 void logo(void);
 void decor(void);
-void decompte(void);
-void write_raquette_up(T_raquette*);
-void write_raquette_down(T_raquette*);
-void clear_raquette_up(T_raquette*);
-void clear_raquette_down(T_raquette*);
+void decompte(T_raquette* compt);
 
 #endif /* INTRO_H_ */

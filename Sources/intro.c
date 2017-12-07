@@ -7,11 +7,6 @@
 
 #include "intro.h"
 
-T_raquette compt;
-static unsigned char i;
-static unsigned char unit;
-static unsigned char dizaine;
-
 void logo(void) {
 
 }
@@ -45,6 +40,9 @@ void decor(void) {
  * Solution : appuyer longtemps (1 sec environ)
  */
 /*void decompte() {
+	compt->x = 40;
+	compt->y = 12;
+	compt->len = 0;
 	unit = 0;
 	dizaine = 0;
 	move(compt->x - 1, compt->y);

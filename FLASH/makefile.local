@@ -6,6 +6,6 @@
 
 export HC08ToolsEnv=$(CWInstallLocationEnv)/MCU/prog
 export GNU_Make_Install_DirEnv=$(CWInstallLocationEnv)/gnu/bin
-export ProjDirPath=D:/Documents/ESTEI/SER3/Workspace_C/manette
+export ProjDirPath=D:/Documents/ESTEI/SER-3/Workspace_C/pong
 export CWInstallLocationEnv=C:/Program Files (x86)/CW MCU v10.7
 export MCUToolsBaseDirEnv=$(CWInstallLocationEnv)/MCU

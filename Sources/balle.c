@@ -5,4 +5,7 @@
  *      Author: Makhai
  */
 
+void move_balle(void) {
+
+}
 

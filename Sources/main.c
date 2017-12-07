@@ -49,26 +49,25 @@ void main(void) {
 
 	T_raquette joueur_1;
 	T_raquette joueur_2;
+	T_raquette compt;
+	unsigned char dizaine;
+	unsigned char unit;
 
 	/*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
 	PE_low_level_init();
 	/*** End of Processor Expert internal initialization.                    ***/
 
-
 	/* Write your code here */
 	/* For example: for(;;) { } */
 
 	logo();
-	
+
 	/*Appel de la fonction qui trace les bords dans move.c*/
 	decor();
 
 	/*Appel du compte 0->99 dans move.c*/
-	/*decompte(); 	Non appelée : pas de BP.		A ACTIVER POUR LA CARTE*/
+	/*decompte(&compt); 	Non appelée : pas de BP.		A ACTIVER POUR LA CARTE*/
 
-
-	
-	
 	/*
 	 *Ce bloc on s'en fout un peu
 	 *Ce je l'ai fait pour me marrer. Mais il est inétressant à comprendre. 
@@ -93,7 +92,7 @@ void main(void) {
 
 	for (;;) {
 
-		move_raquette();
+		move_raquette(&joueur_1, &joueur_2);
 		move_balle();
 
 	}
@@ -104,9 +103,10 @@ void main(void) {
 	PEX_RTOS_START(); /* Startup of the selected RTOS. Macro is defined by the RTOS component. */
 #endif
 	/*** End of RTOS startup code.  ***/
-  /*** Processor Expert end of main routine. DON'T MODIFY THIS CODE!!! ***/
-  for(;;){}
-  /*** Processor Expert end of main routine. DON'T WRITE CODE BELOW!!! ***/
+	/*** Processor Expert end of main routine. DON'T MODIFY THIS CODE!!! ***/
+	for (;;) {
+	}
+	/*** Processor Expert end of main routine. DON'T WRITE CODE BELOW!!! ***/
 } /*** End of main routine. DO NOT MODIFY THIS TEXT!!! ***/
 
 /* END main */

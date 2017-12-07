@@ -8,7 +8,7 @@
 #ifndef RAQUETTE_H_
 #define RAQUETTE_H_
 
-void put_raquette(T_raquette* j1, T_raquette* j2);
-void move_raquette(T_raquette* j1, T_raquette* j2);
+void put_raquette(T_obj* j1, T_obj* j2);
+void move_raquette(T_obj* j1, T_obj* j2);
 
 #endif /* RAQUETTE_H_ */

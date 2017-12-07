@@ -10,6 +10,9 @@
 #include "raquette.h"
 #include "balle.h"
 
+	unsigned char dizaine;
+	unsigned char unit;
+
 
 void logo(void) {
 
@@ -43,7 +46,7 @@ void decor(void) {
  * Souci : si on appui sur PTA2 pendant le délai, aucun effet.
  * Solution : appuyer longtemps (1 sec environ)
  */
-/*void decompte() {
+void compte(T_obj* compt) {
 	compt->x = 40;
 	compt->y = 12;
 	compt->len = 0;
@@ -65,4 +68,29 @@ void decor(void) {
 		}
 	}
 
-}*/
+}
+
+
+/*
+ *Ce bloc on s'en fout un peu
+ *Ce je l'ai fait pour me marrer. Mais il est inétressant à comprendre. 
+ */
+void decompte(T_obj* compt){
+	unit = 5;
+	dizaine = 0;
+	move(compt->x - 1, compt->y);
+	putc(dizaine +'0');
+	while (1) {
+		move(compt->x, compt->y);
+		putc(unit-- +'0');
+		delay(10000);
+		if ((!PTAD_PTAD2) || unit == 0) {
+			delay(10000);
+			move(compt->x, compt->y);
+			putc(' ');
+			move(compt->x - 1, compt->y);
+			putc(' ');
+			break;
+		}
+	}
+}

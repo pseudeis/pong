@@ -47,11 +47,10 @@
 void main(void) {
 	/* Write your local variable definition here */
 
-	T_raquette joueur_1;
-	T_raquette joueur_2;
-	T_raquette compt;
-	unsigned char dizaine;
-	unsigned char unit;
+	T_obj joueur_1;
+	T_obj joueur_2;
+	T_obj compt;
+	T_balle balle;
 
 	/*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
 	PE_low_level_init();
@@ -66,34 +65,18 @@ void main(void) {
 	decor();
 
 	/*Appel du compte 0->99 dans move.c*/
-	/*decompte(&compt); 	Non appelée : pas de BP.		A ACTIVER POUR LA CARTE*/
+	compte(&compt);
 
-	/*
-	 *Ce bloc on s'en fout un peu
-	 *Ce je l'ai fait pour me marrer. Mais il est inétressant à comprendre. 
-	 */
-	unit = 5;
-	dizaine = 0;
-	move(compt.x - 1, compt.y);
-	putc(dizaine +'0');
-	while (1) {
-		move(compt.x, compt.y);
-		putc(unit-- +'0');
-		delay(10000);
-		if ((!PTAD_PTAD2) || unit == 0) {
-			delay(10000);
-			move(compt.x, compt.y);
-			putc(' ');
-			move(compt.x - 1, compt.y);
-			putc(' ');
-			break;
-		}
-	}
+	put_raquette(&joueur_1, &joueur_2);
+	
+	/*Appel du compte 0->99 dans move.c*/
+	decompte(&compt);
+	
 
 	for (;;) {
 
 		move_raquette(&joueur_1, &joueur_2);
-		move_balle();
+		move_balle(&joueur_1, &joueur_2, &balle);
 
 	}
 

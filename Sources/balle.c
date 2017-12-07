@@ -12,7 +12,8 @@
 #include "balle.h"
 
 
-void move_balle(void) {
-
+void move_balle(T_obj* j1, T_obj* j2, T_balle* balle) {
+	
+	
 }
 

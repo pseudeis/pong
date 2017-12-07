@@ -22,6 +22,12 @@ typedef struct {
 	unsigned char len;
 } T_obj;
 
+typedef struct {
+	unsigned char x;
+	unsigned char y;
+	unsigned char len;
+} T_balle;
+
 
 void logo(void);
 void decor(void);

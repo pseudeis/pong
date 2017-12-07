@@ -49,8 +49,8 @@ void main(void) {
 
 	T_obj joueur_1;
 	T_obj joueur_2;
-	T_obj balle;
 	T_obj compt;
+	T_balle balle;
 
 	/*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
 	PE_low_level_init();

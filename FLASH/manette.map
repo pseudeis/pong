@@ -34,14 +34,14 @@ _startupData is allocated at 0xE08D and uses 6 Bytes
 extern struct _tagStartup {
   unsigned nofZeroOut     1
   _Range   pZeroOut       0x80     3
-  _Copy    *toCopyDownBeg 0xE79A
+  _Copy    *toCopyDownBeg 0xE800
 } _startupData;
 
 *********************************************************************************************
 SECTION-ALLOCATION SECTION
 Section Name                    Size  Type     From       To       Segment
 ---------------------------------------------------------------------------------------------
-.text                           1791     R     0xE09B     0xE799   ROM
+.text                           1893     R     0xE09B     0xE7FF   ROM
 .abs_section_ffbd                  1     R     0xFFBD     0xFFBD   .absSeg0
 .abs_section_ffbf                  1     R     0xFFBF     0xFFBF   .absSeg1
 .abs_section_0                     1   N/I        0x0        0x0   .absSeg2
@@ -152,10 +152,10 @@ Section Name                    Size  Type     From       To       Segment
 .init                            141     R     0xE000     0xE08C   ROM
 .common                            3   R/W       0x80       0x82   RAM
 .stack                            64   R/W       0x83       0xC2   RAM
-.copy                              2     R     0xE79A     0xE79B   ROM
+.copy                              2     R     0xE800     0xE801   ROM
 
 Summary of section sizes per section type:
-READ_ONLY (R):         7D0 (dec:     2000)
+READ_ONLY (R):         836 (dec:     2102)
 READ_WRITE (R/W):       43 (dec:       67)
 NO_INIT (N/I):          79 (dec:      121)
 
@@ -170,36 +170,36 @@ OBJECT-ALLOCATION SECTION
 ---------------------------------------------------------------------------------------------
 MODULE:                 -- balle_c.obj --
 - PROCEDURES:
-     move_balle                                E09B      60      96       1   .text       
+     move_balle                                E09B      AB     171       1   .text       
 - VARIABLES:
 MODULE:                 -- bsp_c.obj --
 - PROCEDURES:
-     move                                      E0FB      B5     181      23   .text       
-     delay                                     E1B0      28      40       3   .text       
+     move                                      E146      B5     181      23   .text       
+     delay                                     E1FB      28      40       3   .text       
 - VARIABLES:
 MODULE:                 -- intro_c.obj --
 - PROCEDURES:
-     logo                                      E1D8       1       1       1   .text       
-     init_decor                                E1D9      62      98       1   .text       
-     compte                                    E23B      94     148       1   .text       
-     decompte                                  E2CF      9D     157       1   .text       
+     logo                                      E223       1       1       1   .text       
+     init_decor                                E224      62      98       1   .text       
+     compte                                    E286      94     148       1   .text       
+     decompte                                  E31A      9D     157       1   .text       
 - VARIABLES:
      dizaine                                     80       1       1       7   .common     
      unit                                        81       1       1       9   .common     
 MODULE:                 -- main_c.obj --
 - PROCEDURES:
-     main                                      E36C      45      69       1   .text       
+     main                                      E3B7      45      69       1   .text       
 - VARIABLES:
 MODULE:                 -- raquette_c.obj --
 - PROCEDURES:
-     init_raquette                             E3B1      8D     141       1   .text       
-     move_raquette                             E43E     105     261       1   .text       
+     init_raquette                             E3FC      8D     141       1   .text       
+     move_raquette                             E489     105     261       1   .text       
 - VARIABLES:
 MODULE:                 -- start08_c.obj --
 - PROCEDURES:
-     loadByte                                  E543       E      14       5   .text       
-     Init                                      E551      71     113       1   .text       
-     _Startup                                  E5C2       9       9       1   .text       
+     loadByte                                  E58E       E      14       5   .text       
+     Init                                      E59C      71     113       1   .text       
+     _Startup                                  E60D       9       9       1   .text       
 - VARIABLES:
      _startupData                              E08D       6       6       4   .startData  
 - LABELS:
@@ -321,15 +321,15 @@ MODULE:                 -- IO_Map_c.obj --
      _DBGF                                     1816       2       2       0   .abs_section_1816
 MODULE:                 -- PTA_c.obj --
 - PROCEDURES:
-     PTA_Init                                  E5CB      15      21       1   .text       
+     PTA_Init                                  E616      15      21       1   .text       
 - VARIABLES:
 MODULE:                 -- PTD_c.obj --
 - PROCEDURES:
-     PTD_Init                                  E5E0      15      21       1   .text       
+     PTD_Init                                  E62B      15      21       1   .text       
 - VARIABLES:
 MODULE:                 -- SCI_c.obj --
 - PROCEDURES:
-     SCI_Init                                  E5F5      16      22       1   .text       
+     SCI_Init                                  E640      16      22       1   .text       
 - VARIABLES:
 MODULE:                 -- Vectors_c.obj --
 - PROCEDURES:
@@ -337,25 +337,27 @@ MODULE:                 -- Vectors_c.obj --
      _vect                                     FFCE      32      50       0   .abs_section_ffce
 MODULE:                 -- rtshc08.o (ansiis.lib) --
 - PROCEDURES:
-     _PUSH_ARGS_L                              E60B      20      32       1   .text       
-     _ENTER_UNARY_L                            E62B      29      41       1   .text       
-     _ENTER_BINARY_L                           E654      16      22       1   .text       
-     _IDIVMOD                                  E66A      69     105       1   .text       
-     _SPLITSIGN                                E6D3      1C      28       2   .text       
-     _LCMP_k_rel_j                             E6EF      1F      31       1   .text       
-     _IDIVS_STAR08                             E70E      1B      27       6   .text       
-     _IMODS_STAR08                             E729      25      37       4   .text       
-     _ICMP                                     E74E      16      22       2   .text       
-     _LINC                                     E764      16      22       1   .text       
-     _LCMP                                     E77A       6       6       1   .text       
-     _POP32                                    E780      1A      26       1   .text       
+     _PUSH_ARGS_L                              E656      20      32       1   .text       
+     _ENTER_UNARY_L                            E676      29      41       1   .text       
+     _ENTER_BINARY_L                           E69F      16      22       1   .text       
+     _IDIVMOD                                  E6B5      69     105       2   .text       
+     _SPLITSIGN                                E71E      1C      28       2   .text       
+     _LCMP_k_rel_j                             E73A      1F      31       1   .text       
+     _IDIVS_STAR08                             E759      1B      27       4   .text       
+     _IDIVU_STAR08                             E774       D      13       1   .text       
+     _IMODS_STAR08                             E781      25      37       4   .text       
+     _IDIVU_8                                  E7A6       E      14       2   .text       
+     _ICMP                                     E7B4      16      22       4   .text       
+     _LINC                                     E7CA      16      22       1   .text       
+     _LCMP                                     E7E0       6       6       1   .text       
+     _POP32                                    E7E6      1A      26       1   .text       
 - VARIABLES:
 
 *********************************************************************************************
 MODULE STATISTIC
   Name                                      Data   Code  Const
 ---------------------------------------------------------------------------------------------
-  balle_c.obj                                  0     96      0
+  balle_c.obj                                  0    171      0
   bsp_c.obj                                    0    221      0
   intro_c.obj                                  2    404      0
   main_c.obj                                   0     69      0
@@ -367,7 +369,7 @@ MODULE STATISTIC
   PTD_c.obj                                    0     21      0
   SCI_c.obj                                    0     22      0
   Vectors_c.obj                                0      0     50
-  rtshc08.o (ansiis.lib)                       0    399      0
+  rtshc08.o (ansiis.lib)                       0    426      0
   other                                       64     14      2
 
 *********************************************************************************************
@@ -377,7 +379,7 @@ SECTION: ".text"
   move_balle move delay logo init_decor compte decompte main init_raquette 
   move_raquette loadByte Init _Startup PTA_Init PTD_Init SCI_Init _PUSH_ARGS_L 
   _ENTER_UNARY_L _ENTER_BINARY_L _IDIVMOD _SPLITSIGN _LCMP_k_rel_j 
-  _IDIVS_STAR08 _IMODS_STAR08 _ICMP _LINC _LCMP _POP32 
+  _IDIVS_STAR08 _IDIVU_STAR08 _IMODS_STAR08 _IDIVU_8 _ICMP _LINC _LCMP _POP32 
 SECTION: ".init"
   Cpu_Interrupt _EntryPoint PE_low_level_init 
 SECTION: ".common"
@@ -708,34 +710,36 @@ OBJECT LIST SORTED BY ADDRESS
      Cpu_Interrupt                             E000       4       4      24   .init       
      _EntryPoint                               E004      49      73       1   .init       
      PE_low_level_init                         E04D      40      64       1   .init       
-     move_balle                                E09B      60      96       1   .text       
-     move                                      E0FB      B5     181      23   .text       
-     delay                                     E1B0      28      40       3   .text       
-     logo                                      E1D8       1       1       1   .text       
-     init_decor                                E1D9      62      98       1   .text       
-     compte                                    E23B      94     148       1   .text       
-     decompte                                  E2CF      9D     157       1   .text       
-     main                                      E36C      45      69       1   .text       
-     init_raquette                             E3B1      8D     141       1   .text       
-     move_raquette                             E43E     105     261       1   .text       
-     loadByte                                  E543       E      14       5   .text       
-     Init                                      E551      71     113       1   .text       
-     _Startup                                  E5C2       9       9       1   .text       
-     PTA_Init                                  E5CB      15      21       1   .text       
-     PTD_Init                                  E5E0      15      21       1   .text       
-     SCI_Init                                  E5F5      16      22       1   .text       
-     _PUSH_ARGS_L                              E60B      20      32       1   .text       
-     _ENTER_UNARY_L                            E62B      29      41       1   .text       
-     _ENTER_BINARY_L                           E654      16      22       1   .text       
-     _IDIVMOD                                  E66A      69     105       1   .text       
-     _SPLITSIGN                                E6D3      1C      28       2   .text       
-     _LCMP_k_rel_j                             E6EF      1F      31       1   .text       
-     _IDIVS_STAR08                             E70E      1B      27       6   .text       
-     _IMODS_STAR08                             E729      25      37       4   .text       
-     _ICMP                                     E74E      16      22       2   .text       
-     _LINC                                     E764      16      22       1   .text       
-     _LCMP                                     E77A       6       6       1   .text       
-     _POP32                                    E780      1A      26       1   .text       
+     move_balle                                E09B      AB     171       1   .text       
+     move                                      E146      B5     181      23   .text       
+     delay                                     E1FB      28      40       3   .text       
+     logo                                      E223       1       1       1   .text       
+     init_decor                                E224      62      98       1   .text       
+     compte                                    E286      94     148       1   .text       
+     decompte                                  E31A      9D     157       1   .text       
+     main                                      E3B7      45      69       1   .text       
+     init_raquette                             E3FC      8D     141       1   .text       
+     move_raquette                             E489     105     261       1   .text       
+     loadByte                                  E58E       E      14       5   .text       
+     Init                                      E59C      71     113       1   .text       
+     _Startup                                  E60D       9       9       1   .text       
+     PTA_Init                                  E616      15      21       1   .text       
+     PTD_Init                                  E62B      15      21       1   .text       
+     SCI_Init                                  E640      16      22       1   .text       
+     _PUSH_ARGS_L                              E656      20      32       1   .text       
+     _ENTER_UNARY_L                            E676      29      41       1   .text       
+     _ENTER_BINARY_L                           E69F      16      22       1   .text       
+     _IDIVMOD                                  E6B5      69     105       2   .text       
+     _SPLITSIGN                                E71E      1C      28       2   .text       
+     _LCMP_k_rel_j                             E73A      1F      31       1   .text       
+     _IDIVS_STAR08                             E759      1B      27       4   .text       
+     _IDIVU_STAR08                             E774       D      13       1   .text       
+     _IMODS_STAR08                             E781      25      37       4   .text       
+     _IDIVU_8                                  E7A6       E      14       2   .text       
+     _ICMP                                     E7B4      16      22       4   .text       
+     _LINC                                     E7CA      16      22       1   .text       
+     _LCMP                                     E7E0       6       6       1   .text       
+     _POP32                                    E7E6      1A      26       1   .text       
      NVPROT_INIT                               FFBD       1       1       0   .abs_section_ffbd
      NVOPT_INIT                                FFBF       1       1       0   .abs_section_ffbf
      _vect                                     FFCE      32      50       0   .abs_section_ffce
@@ -756,16 +760,16 @@ rtshc08.o (ansiis.lib):
   _LMUL_k_is_k_mul_j _LDIVMOD _NEG_L_HX _ABS_L_HX _SPLITSIGN_L 
   _LMODU_k_is_k_mod_j _LDIVU_k_is_k_div_j _LMODS_k_is_k_mod_j 
   _LDIVS_k_is_k_div_j _CMP24_k_rel_j _BMULS _BDIVS _BMODS _IMUL_STAR08 
-  _IDIVU_STAR08 _IMODU_STAR08 _IDIVU_8 _IMODU_8 _IASR _ILSR _ILSL _LDEC _LNEG 
-  _LNOT _LADD _LADD_RC _LSUB _LSUB_LC _LSUB_RC _LAND _LAND_RC _LOR _LOR_RC 
-  _LXOR _LXOR_RC _LMUL _LMUL_RC _LDIVS _LDIVS_LC _LDIVS_RC _LDIVU _LDIVU_LC 
-  _LDIVU_RC _LMODS _LMODS_LC _LMODS_RC _LMODU _LMODU_LC _LMODU_RC _LASR _LLSR 
-  _LLSL _LCMP_RC _PUSH_ARGS_24 _ENTER_BINARY_24_RC _ENTER_BINARY_24 _CMP24 
-  _CMP24_RC _COPY _COPY_L _POP64 _STORE32 _STORE64 _SEXT8_32 _SEXT16_32 
-  _CALL_STAR08 _CALL_STAR08_FAR _Jump_Table_Addr _Jump_Table_Offset 
-  _Jump_Table_Header_Addr _Jump_Table_Header_Offset _Search_Table_16_Addr 
-  _Search_Table_16_Offset _Search_Table_8_Addr _Search_Table_8_Offset _PUSH_CC 
-  _POP_CC _CONV_FAR_TO_NEAR _CONV_FAR_TO_LINEAR _CONV_LINEAR_TO_FAR 
+  _IMODU_STAR08 _IMODU_8 _IASR _ILSR _ILSL _LDEC _LNEG _LNOT _LADD _LADD_RC 
+  _LSUB _LSUB_LC _LSUB_RC _LAND _LAND_RC _LOR _LOR_RC _LXOR _LXOR_RC _LMUL 
+  _LMUL_RC _LDIVS _LDIVS_LC _LDIVS_RC _LDIVU _LDIVU_LC _LDIVU_RC _LMODS 
+  _LMODS_LC _LMODS_RC _LMODU _LMODU_LC _LMODU_RC _LASR _LLSR _LLSL _LCMP_RC 
+  _PUSH_ARGS_24 _ENTER_BINARY_24_RC _ENTER_BINARY_24 _CMP24 _CMP24_RC _COPY 
+  _COPY_L _POP64 _STORE32 _STORE64 _SEXT8_32 _SEXT16_32 _CALL_STAR08 
+  _CALL_STAR08_FAR _Jump_Table_Addr _Jump_Table_Offset _Jump_Table_Header_Addr 
+  _Jump_Table_Header_Offset _Search_Table_16_Addr _Search_Table_16_Offset 
+  _Search_Table_8_Addr _Search_Table_8_Offset _PUSH_CC _POP_CC 
+  _CONV_FAR_TO_NEAR _CONV_FAR_TO_LINEAR _CONV_LINEAR_TO_FAR 
 NOT USED VARIABLES
 Cpu_c.obj:
   CCR_reg 
@@ -775,7 +779,7 @@ rtshc08.o (ansiis.lib):
 *********************************************************************************************
 COPYDOWN SECTION
 ---------------------------------------------------------------------------------------------
-------- ROM-ADDRESS: 0xE79A ---- SIZE       2 ---
+------- ROM-ADDRESS: 0xE800 ---- SIZE       2 ---
 Filling bytes inserted
  0000
 
@@ -787,7 +791,7 @@ _EntryPoint               USES _SOPT1 _SPMSC1 _SPMSC2 _SPMSC3 _ICSTRM _ICSSC
 PE_low_level_init         USES _SCGC1 _SCGC2 _PTASE _PTBSE _PTCSE _PTDSE 
                                 _PTADS _PTBDS _PTCDS _PTDDS PTA_Init PTD_Init 
                                 SCI_Init CCR_lock 
-move_balle                USES _IDIVS_STAR08 move _SCIS1 _SCID 
+move_balle                USES _IDIVU_8 _ICMP move _SCIS1 _SCID 
 move                      USES _SCIS1 _SCID _IDIVS_STAR08 _IMODS_STAR08 
 delay                     USES _LINC _POP32 _LCMP 
 init_decor                USES move _SCIS1 _SCID 
@@ -805,7 +809,9 @@ SCI_Init                  USES _SCIC2 _SCIS1 _SCID _SCIS2 _SCIBD _SCIC1 _SCIC3
 _ENTER_BINARY_L           USES _PUSH_ARGS_L 
 _SPLITSIGN                USES _IDIVMOD 
 _IDIVS_STAR08             USES _SPLITSIGN 
+_IDIVU_STAR08             USES _IDIVMOD 
 _IMODS_STAR08             USES _SPLITSIGN 
+_IDIVU_8                  USES _IDIVU_STAR08 
 _LINC                     USES _ENTER_UNARY_L 
 _LCMP                     USES _ENTER_BINARY_L _LCMP_k_rel_j 
 _vect                     USES Cpu_Interrupt _EntryPoint 
@@ -879,7 +885,13 @@ DEPENDENCY TREE
  |  |     
  |  +- move_balle          
  |     | 
- |     +- _IDIVS_STAR08        (see above)
+ |     +- _IDIVU_8            
+ |     |  | 
+ |     |  +- _IDIVU_STAR08       
+ |     |     | 
+ |     |     +- _IDIVMOD             (see above)
+ |     |        
+ |     +- _ICMP                (see above)
  |     |  
  |     +- move                 (see above)
  |        
@@ -906,5 +918,5 @@ STATISTIC SECTION
 ExeFile:
 --------
 Number of blocks to be downloaded: 7
-Total size of all blocks to be downloaded: 2000
+Total size of all blocks to be downloaded: 2102
 

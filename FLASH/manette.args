@@ -9,7 +9,6 @@
 "$(ProjDirPath)/FLASH/Sources/bsp_c.obj"
 "$(ProjDirPath)/FLASH/Sources/intro_c.obj"
 "$(ProjDirPath)/FLASH/Sources/main_c.obj"
-"$(ProjDirPath)/FLASH/Sources/move_c.obj"
 "$(ProjDirPath)/FLASH/Sources/raquette_c.obj"
 "$(ProjDirPath)/FLASH/Project_Settings/Startup_Code/start08_c.obj"
 "$(ProjDirPath)/FLASH/Generated_Code/Cpu_c.obj"

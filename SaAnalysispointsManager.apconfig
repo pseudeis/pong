@@ -1,6 +1,6 @@
 <Analysispoints>
 	<Name>AnalysispointsManager</Name>
-	<ProjectPath>D:/Documents/ESTEI/SER-3/Workspace_C/pong/SaAnalysispointsManager.apconfig</ProjectPath>
+	<ProjectPath>D:/Documents/ESTEI/SER3/Workspace_C/pong/SaAnalysispointsManager.apconfig</ProjectPath>
 	<MaxNumberOfCores>1</MaxNumberOfCores>
 	<Comments>Analysispoints Manager</Comments>
 	<IgnoreAll>false</IgnoreAll>

@@ -16,6 +16,7 @@ void init_raquette(T_obj* raquette) {
 	/*Position de la raquette du J1*/
 	raquette->y = 8;
 	raquette->len = 5;
+	raquette->score = 0;
 
 	/*
 	 * Affichage des raquettes.

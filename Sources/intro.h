@@ -20,6 +20,7 @@ typedef struct {
 	unsigned char x;
 	unsigned char y;
 	unsigned char len;
+	unsigned char score;
 } T_obj;
 
 typedef struct {
@@ -31,7 +32,6 @@ typedef struct {
 	signed short spy;
 	unsigned char skin;
 } T_balle;
-
 
 void logo(void);
 void init_decor(void);

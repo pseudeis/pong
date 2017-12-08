@@ -18,8 +18,8 @@ void init_balle(T_balle* balle) {
 	balle->skin = 'O';
 	move(balle->x, balle->y);
 	putc('O');
-	balle->spx=40;
-	balle->spy=10;
+	balle->spx = 40;
+	balle->spy = 10;
 }
 
 /*
@@ -31,10 +31,11 @@ void move_balle(T_obj* j1, T_obj* j2, T_balle* balle) {
 	/*On garde l'ancienne position pour l'effacement*/
 	unsigned char old_x = balle->x;
 	unsigned char old_y = balle->y;
+	unsigned char but = 0;
 
-	/* On additionne le vecteur de vitesse 
-	 * à la position précédante
-	 * position négative possible. Collisions à traiter*/
+	/* On additionne les vecteurs de vitesse à la position précédante
+	 * position négative possible
+	 * On traite les collisions avant cast dans uc*/
 	if (balle->spx >= 0) {
 		balle->precx += (balle->spx);
 
@@ -49,113 +50,129 @@ void move_balle(T_obj* j1, T_obj* j2, T_balle* balle) {
 		balle->precy -= (balle->spy);
 
 	}
-	
+
 	/*on vérifie si la balle ne dépasse pas un bord
 	 *On vérifie si la balle ne dépasse pas une raquette
 	 *Si la balle traverse, on gère le rebond
 	 * GROS PAVE INCOMING
 	 */
-	/*Gestion des collisions bords*/
-	if(balle->precy<=100){
-		balle->spy=~(balle->spy);
-		balle->precy=100;
+	/*Gestion des collisions coins*/
+	if (((balle->precx <= 600) && (balle->precy <= 100))
+			|| ((balle->precx >= 7400) && (balle->precy <= 100))
+			|| ((balle->precx <= 600) && (balle->precy >= 2300))
+			|| ((balle->precx >= 7400) && (balle->precy >= 2300))) {
+		balle->spy = ~(balle->spy);
+		balle->spx = ~(balle->spx);
 	}
-	
-	else if(balle->precy>=2300){
-		balle->spy=~(balle->spy);
-		balle->precy=2300;
+	/*Gestion des collisions bord supérieur*/
+	else if (balle->precy <= 100) {
+		balle->spy = ~(balle->spy);
+		balle->precy = 100;
 	}
 
-	balle->x = (unsigned char) balle->precx / 100;
-	balle->y = (unsigned char) balle->precy / 100;
-
+	/*Gestion des collisions bord inférieur*/
+	else if (balle->precy >= 2300) {
+		balle->spy = ~(balle->spy);
+		balle->precy = 2300;
+	}
 
 	/*Gestion des collisions raquettes*/
-	
 	/*RAQUETTE 1*/
-	if(balle->precx<=500){
-		balle->precx=500;
-		balle->spx=~(balle->spx);
-		switch((balle->y)-(j1->y)){
+	else if (balle->precx <= 600) {
+		balle->precx = 600;
+		balle->spx = ~(balle->spx);
+		switch ((balle->y) - (j1->y)) {
 		case 0:
 			/*Vite vers le haut*/
-			balle->spx*=(13/10);
-			balle->spy-=20;
+			balle->spx *= (13 / 10);
+			balle->spy -= 20;
 			break;
 		case 1:
 			/*Un peu vers le haut*/
-			balle->spx*=(11/10);
-			balle->spy-=10;
+			balle->spx *= (11 / 10);
+			balle->spy -= 10;
 			break;
 		case 2:
 			/*Amorti central*/
-			balle->spx*=(9/10);
+			balle->spx *= (9 / 10);
 			break;
 		case 3:
 			/*Un peu vers le bas*/
-			balle->spx*=(11/10);
-			balle->spy+=20;
+			balle->spx *= (11 / 10);
+			balle->spy += 20;
 			break;
 		case 4:
 			/*Vite vers le bas*/
-			balle->spx*=(13/10);
-			balle->spy+=20;
+			balle->spx *= (13 / 10);
+			balle->spy += 20;
 			break;
 		default:
-			/*BUUUUUUUUUUT*/
+			but = 1;
 			break;
-			
+
 		}
-		if(balle->spx>200)
-			balle->spx=200;
-		if(balle->spy>200)
-			balle->spy=200;
-		else if(balle->spy>-200)
-			balle->spy=-200;
 	}
 
 	/*RAQUETTE 2*/
-
-	else if(balle->precx>=7500){
-		balle->precx=7500;
-		balle->spx=~(balle->spx);
-		switch((balle->y)-(j2->y)){
+	else if (balle->precx >= 7400) {
+		balle->precx = 7400;
+		balle->spx = ~(balle->spx);
+		switch ((balle->y) - (j2->y)) {
 		case 0:
 			/*Vite vers le haut*/
-			balle->spx*=(13/10);
-			balle->spy-=20;
+			balle->spx *= (13 / 10);
+			balle->spy -= 20;
 			break;
 		case 1:
 			/*Un peu vers le haut*/
-			balle->spx*=(11/10);
-			balle->spy-=10;
+			balle->spx *= (11 / 10);
+			balle->spy -= 10;
 			break;
 		case 2:
 			/*Amorti central*/
-			balle->spx*=(9/10);
+			balle->spx *= (9 / 10);
 			break;
 		case 3:
 			/*Un peu vers le bas*/
-			balle->spx*=(11/10);
-			balle->spy+=20;
+			balle->spx *= (11 / 10);
+			balle->spy += 20;
 			break;
 		case 4:
 			/*Vite vers le bas*/
-			balle->spx*=(13/10);
-			balle->spy+=20;
+			balle->spx *= (13 / 10);
+			balle->spy += 20;
 			break;
 		default:
-			/*BUUUUUUUUUUT*/
+			but = 2;
 			break;
-			
+
 		}
-		if(balle->spx>200)
-			balle->spx=200;
-		if(balle->spy>200)
-			balle->spy=200;
-		else if(balle->spy>-200)
-			balle->spy=-200;
+	} else {
+		/*Aucune collision ce tour-ci*/
 	}
+
+	switch (but) {
+	case 1:
+		j1->score++;
+		init_balle(balle);
+		break;
+	case 2:
+		j1->score++;
+		init_balle(balle);
+		break;
+	default:
+		/*Pas de but marqué*/
+		break;
+	}
+
+	if (balle->spx > 200)
+		balle->spx = 200; /*Limitation vitesse >*/
+	else if (balle->spx < -200)
+		balle->spx = -200; /*Limitation vitesse <*/
+	if (balle->spy > 200)
+		balle->spy = 200; /*Limitation vitesse V*/
+	else if (balle->spy > -200)
+		balle->spy = -200; /*Limitation vitesse ^*/
 
 	/* Quand la balle est dans une trajectoire correcte
 	 * on actualise sa position sur la console

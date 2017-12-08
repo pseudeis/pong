@@ -18,8 +18,8 @@ void init_balle(T_balle* balle) {
 	balle->skin = 'O';
 	move(balle->x, balle->y);
 	putc('O');
-	balle->spx = 40;
-	balle->spy = 5;
+	balle->spx = 200;
+	balle->spy = 20;
 }
 
 /*
@@ -74,12 +74,12 @@ void move_balle(T_obj* j1, T_obj* j2, T_balle* balle) {
 		case 0:
 			/*Vite vers le haut*/
 			balle->spx *= (13 / 10);
-			 balle->spy -= 20;
+			balle->spy -= 10;
 			break;
 		case 1:
 			/*Un peu vers le haut*/
 			balle->spx *= (11 / 10);
-			 balle->spy -= 10;
+			balle->spy -= 5;
 			break;
 		case 2:
 			/*Amorti central*/
@@ -87,12 +87,17 @@ void move_balle(T_obj* j1, T_obj* j2, T_balle* balle) {
 		case 3:
 			/*Un peu vers le bas*/
 			balle->spx *= (11 / 10);
-			 balle->spy += 20;
+			balle->spy += 5;
 			break;
 		case 4:
 			/*Vite vers le bas*/
 			balle->spx *= (13 / 10);
-			 balle->spy += 20;
+			balle->spy += 10;
+			break;
+		case 5:
+			/*Vite vers le bas*/
+			balle->spx *= (13 / 10);
+			balle->spy += 10;
 			break;
 		default:
 			but = 1;
@@ -109,12 +114,12 @@ void move_balle(T_obj* j1, T_obj* j2, T_balle* balle) {
 		case 0:
 			/*Vite vers le haut*/
 			balle->spx *= (13 / 10);
-			 balle->spy -= 20;
+			balle->spy -= 10;
 			break;
 		case 1:
 			/*Un peu vers le haut*/
 			balle->spx *= (11 / 10);
-			 balle->spy -= 10;
+			balle->spy -= 5;
 			break;
 		case 2:
 			/*Amorti central*/
@@ -122,12 +127,17 @@ void move_balle(T_obj* j1, T_obj* j2, T_balle* balle) {
 		case 3:
 			/*Un peu vers le bas*/
 			balle->spx *= (11 / 10);
-			 balle->spy += 20;
+			balle->spy += 5;
 			break;
 		case 4:
 			/*Vite vers le bas*/
 			balle->spx *= (13 / 10);
-			 balle->spy += 20;
+			balle->spy += 10;
+			break;
+		case 5:
+			/*Vite vers le bas*/
+			balle->spx *= (13 / 10);
+			balle->spy += 10;
 			break;
 		default:
 			but = 2;
@@ -152,10 +162,10 @@ void move_balle(T_obj* j1, T_obj* j2, T_balle* balle) {
 		break;
 	}
 
-	if (balle->spx > 200)
-		balle->spx = 200; /*Limitation vitesse >*/
-	else if (balle->spx < -200)
-		balle->spx = -200; /*Limitation vitesse <*/
+	if (balle->spx > 500)
+		balle->spx = 500; /*Limitation vitesse >*/
+	else if (balle->spx < -500)
+		balle->spx = -500; /*Limitation vitesse <*/
 	if (balle->spy > 200)
 		balle->spy = 200; /*Limitation vitesse V*/
 	else if (balle->spy < -200)

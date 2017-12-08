@@ -10,6 +10,7 @@ Sources/main_c.obj: \
 	D:/Documents/ESTEI/SER3/Workspace_C/pong/Generated_Code/PTA.h \
 	D:/Documents/ESTEI/SER3/Workspace_C/pong/Generated_Code/PTD.h \
 	D:/Documents/ESTEI/SER3/Workspace_C/pong/Generated_Code/SCI.h \
+	D:/Documents/ESTEI/SER3/Workspace_C/pong/Generated_Code/TPM1.h \
 	D:/Documents/ESTEI/SER3/Workspace_C/pong/Sources/bsp.h \
 	D:/Documents/ESTEI/SER3/Workspace_C/pong/Sources/intro.h \
 	D:/Documents/ESTEI/SER3/Workspace_C/pong/Sources/raquette.h \

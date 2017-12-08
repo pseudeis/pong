@@ -1,4 +1,5 @@
 
+
 Sources/bsp_c.obj: \
 	D:/Documents/ESTEI/SER3/Workspace_C/pong/Project_Headers/../Sources/bsp.c \
 	D:/Documents/ESTEI/SER3/Workspace_C/pong/Sources/bsp.h \
@@ -10,5 +11,6 @@ Sources/bsp_c.obj: \
 	D:/Documents/ESTEI/SER3/Workspace_C/pong/Sources/events.h \
 	D:/Documents/ESTEI/SER3/Workspace_C/pong/Generated_Code/PTA.h \
 	D:/Documents/ESTEI/SER3/Workspace_C/pong/Generated_Code/PTD.h \
-	D:/Documents/ESTEI/SER3/Workspace_C/pong/Generated_Code/SCI.h 
+	D:/Documents/ESTEI/SER3/Workspace_C/pong/Generated_Code/SCI.h \
+	D:/Documents/ESTEI/SER3/Workspace_C/pong/Generated_Code/TPM1.h 
 

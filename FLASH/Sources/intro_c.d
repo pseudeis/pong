@@ -1,4 +1,5 @@
 
+
 Sources/intro_c.obj: \
 	D:/Documents/ESTEI/SER3/Workspace_C/pong/Project_Headers/../Sources/intro.c \
 	D:/Documents/ESTEI/SER3/Workspace_C/pong/Sources/bsp.h \
@@ -11,6 +12,7 @@ Sources/intro_c.obj: \
 	D:/Documents/ESTEI/SER3/Workspace_C/pong/Generated_Code/PTA.h \
 	D:/Documents/ESTEI/SER3/Workspace_C/pong/Generated_Code/PTD.h \
 	D:/Documents/ESTEI/SER3/Workspace_C/pong/Generated_Code/SCI.h \
+	D:/Documents/ESTEI/SER3/Workspace_C/pong/Generated_Code/TPM1.h \
 	D:/Documents/ESTEI/SER3/Workspace_C/pong/Sources/intro.h \
 	D:/Documents/ESTEI/SER3/Workspace_C/pong/Sources/raquette.h \
 	D:/Documents/ESTEI/SER3/Workspace_C/pong/Sources/balle.h 

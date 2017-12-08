@@ -19,6 +19,11 @@ Module "SCI"       (component Init_SCI_HCS08)
                 this method in user code to initialize the module. By default, the method is called by PE automatically; see 
                 "Call Init method" property of the component for more details.
 
+Module "TPM1"      (component Init_TPM_HCS08)
+   - TPM1_Init -This method initializes registers of the TPM module according to this Peripheral Initialization settings. Call 
+                this method in the user code to initialize the module. By default, the method is called by PE automatically; 
+                see "Call Init method" property of the component for more details.
+
 Module "Cpu"       (component MC9S08QE8_32)
    - Cpu_EnableInt -Enables maskable interrupts
    - Cpu_DisableInt -Disables maskable interrupts

@@ -31,7 +31,7 @@ void init_raquette(T_obj* raquette) {
 void move_raquette1(T_obj* j1) {
 
 	/*JOUEUR 1*/
-	if ((!PTAD_PTAD3) && (j1->y < 17)) {
+	if ((!PTAD_PTAD3) && (j1->y < 18)) {
 		move(j1->x, j1->y); /*On se place en haut de la raquette*/
 		putc(' ');
 		/*On efface l'extremité*/
@@ -39,7 +39,7 @@ void move_raquette1(T_obj* j1) {
 		move(j1->x, j1->y + j1->len); /*On se déplace en bas de la nouvelle raquette*/
 		putc('|');
 		/*On écrit la nouvelle extremité de la raquette*/
-	} else if (!(PTAD_PTAD2) && (j1->y > 3)) {
+	} else if (!(PTAD_PTAD2) && (j1->y > 2)) {
 		move(j1->x, j1->y + j1->len); /*On se place en bas de la raquette*/
 		putc(' ');
 		/*On efface l'extremité*/
@@ -55,7 +55,7 @@ void move_raquette1(T_obj* j1) {
 void move_raquette2(T_obj* j2) {
 
 	/*JOUEUR 2*/
-	if ((!PTDD_PTDD3) && (j2->y < 17)) {
+	if ((!PTDD_PTDD3) && (j2->y < 18)) {
 		move(j2->x, j2->y); /*On se place en haut de la raquette*/
 		putc(' ');
 		/*On efface l'extremité*/
@@ -63,7 +63,7 @@ void move_raquette2(T_obj* j2) {
 		move(j2->x, j2->y + j2->len); /*On se déplace en bas de la nouvelle raquette*/
 		putc('|');
 		/*On écrit la nouvelle extremité de la raquette*/
-	} else if (!(PTDD_PTDD2) && (j2->y > 3)) {
+	} else if (!(PTDD_PTDD2) && (j2->y > 2)) {
 		move(j2->x, j2->y + j2->len); /*On se place en bas de la raquette*/
 		putc(' ');
 		/*On efface l'extremité*/

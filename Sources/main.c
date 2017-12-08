@@ -49,7 +49,7 @@ void main(void) {
 
 	T_obj joueur_1;
 	T_obj joueur_2;
-	T_obj compt;
+	/*	T_obj compt;*/
 	T_balle balle;
 
 	/*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
@@ -65,15 +65,17 @@ void main(void) {
 	init_decor();
 
 	/*Appel du compte 0->99 dans move.c*/
-	compte(&compt);
+	/*	compte(&compt);*/
 
-	joueur_1.x=5;
-	joueur_1.x=75;
+	joueur_1.x = 5;
+	joueur_2.x = 75;
 	init_raquette(&joueur_1);
 	init_raquette(&joueur_2);
+	
+	init_balle(&balle);
 
 	/*Appel du compte 0->99 dans move.c*/
-	decompte(&compt);
+	/*	decompte(&compt);*/
 
 	for (;;) {
 

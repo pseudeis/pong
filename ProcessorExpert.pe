@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PEproject>
   <Header>
-    <Name>manette</Name>
+    <Name>pong</Name>
     <SavedBy>Makhai</SavedBy>
-    <ModificationStamp>10</ModificationStamp>
-    <Date>2017-12-01</Date>
+    <ModificationStamp>11</ModificationStamp>
+    <Date>2017-12-08</Date>
     <IDE>Eclipse IDE</IDE>
     <PEversion>1.9.2.RT6_b1446-0504</PEversion>
   </Header>
@@ -29,7 +29,7 @@
     <UseExistingModules>true</UseExistingModules>
     <RenamePeripheries>false</RenamePeripheries>
     <Autodependency>true</Autodependency>
-    <ProjectCompNumb>15</ProjectCompNumb>
+    <ProjectCompNumb>18</ProjectCompNumb>
     <DelUnusedPreviouslyGenFiles>true</DelUnusedPreviouslyGenFiles>
     <GeneratedCodeFrozen>false</GeneratedCodeFrozen>
     <AssignInitComponentNameToPrph>true</AssignInitComponentNameToPrph>

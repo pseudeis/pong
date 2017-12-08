@@ -13,13 +13,13 @@
 void init_balle(T_balle* balle) {
 	balle->x = 40;
 	balle->y = 12;
-	balle->spx = 0;
-	balle->spy = 0;
+	balle->precx = 4000;
+	balle->precy = 1200;
 	balle->skin = 'O';
 	move(balle->x, balle->y);
 	putc('O');
 	balle->spx = 40;
-	balle->spy = 10;
+	balle->spy = 5;
 }
 
 /*
@@ -36,20 +36,9 @@ void move_balle(T_obj* j1, T_obj* j2, T_balle* balle) {
 	/* On additionne les vecteurs de vitesse à la position précédante
 	 * position négative possible
 	 * On traite les collisions avant cast dans uc*/
-	if (balle->spx >= 0) {
-		balle->precx += (balle->spx);
 
-	} else {
-		balle->precx -= (balle->spx);
-
-	}
-	if (balle->spy >= 0) {
-		balle->precy += (balle->spy);
-
-	} else {
-		balle->precy -= (balle->spy);
-
-	}
+	balle->precx += (balle->spx);
+	balle->precy += (balle->spy);
 
 	/*on vérifie si la balle ne dépasse pas un bord
 	 *On vérifie si la balle ne dépasse pas une raquette
@@ -57,17 +46,17 @@ void move_balle(T_obj* j1, T_obj* j2, T_balle* balle) {
 	 * GROS PAVE INCOMING
 	 */
 	/*Gestion des collisions coins*/
-	if (((balle->precx <= 600) && (balle->precy <= 100))
+	/*if (((balle->precx <= 600) && (balle->precy <= 100))
 			|| ((balle->precx >= 7400) && (balle->precy <= 100))
 			|| ((balle->precx <= 600) && (balle->precy >= 2300))
 			|| ((balle->precx >= 7400) && (balle->precy >= 2300))) {
 		balle->spy = ~(balle->spy);
 		balle->spx = ~(balle->spx);
-	}
+	}*/
 	/*Gestion des collisions bord supérieur*/
-	else if (balle->precy <= 100) {
+	if (balle->precy <= 200) {
 		balle->spy = ~(balle->spy);
-		balle->precy = 100;
+		balle->precy = 200;
 	}
 
 	/*Gestion des collisions bord inférieur*/
@@ -79,32 +68,31 @@ void move_balle(T_obj* j1, T_obj* j2, T_balle* balle) {
 	/*Gestion des collisions raquettes*/
 	/*RAQUETTE 1*/
 	else if (balle->precx <= 600) {
-		balle->precx = 600;
+		balle->precx = 700;
 		balle->spx = ~(balle->spx);
 		switch ((balle->y) - (j1->y)) {
 		case 0:
 			/*Vite vers le haut*/
 			balle->spx *= (13 / 10);
-			balle->spy -= 20;
+			 balle->spy -= 20;
 			break;
 		case 1:
 			/*Un peu vers le haut*/
 			balle->spx *= (11 / 10);
-			balle->spy -= 10;
+			 balle->spy -= 10;
 			break;
 		case 2:
 			/*Amorti central*/
-			balle->spx *= (9 / 10);
 			break;
 		case 3:
 			/*Un peu vers le bas*/
 			balle->spx *= (11 / 10);
-			balle->spy += 20;
+			 balle->spy += 20;
 			break;
 		case 4:
 			/*Vite vers le bas*/
 			balle->spx *= (13 / 10);
-			balle->spy += 20;
+			 balle->spy += 20;
 			break;
 		default:
 			but = 1;
@@ -115,32 +103,31 @@ void move_balle(T_obj* j1, T_obj* j2, T_balle* balle) {
 
 	/*RAQUETTE 2*/
 	else if (balle->precx >= 7400) {
-		balle->precx = 7400;
+		balle->precx = 7300;
 		balle->spx = ~(balle->spx);
 		switch ((balle->y) - (j2->y)) {
 		case 0:
 			/*Vite vers le haut*/
 			balle->spx *= (13 / 10);
-			balle->spy -= 20;
+			 balle->spy -= 20;
 			break;
 		case 1:
 			/*Un peu vers le haut*/
 			balle->spx *= (11 / 10);
-			balle->spy -= 10;
+			 balle->spy -= 10;
 			break;
 		case 2:
 			/*Amorti central*/
-			balle->spx *= (9 / 10);
 			break;
 		case 3:
 			/*Un peu vers le bas*/
 			balle->spx *= (11 / 10);
-			balle->spy += 20;
+			 balle->spy += 20;
 			break;
 		case 4:
 			/*Vite vers le bas*/
 			balle->spx *= (13 / 10);
-			balle->spy += 20;
+			 balle->spy += 20;
 			break;
 		default:
 			but = 2;
@@ -157,7 +144,7 @@ void move_balle(T_obj* j1, T_obj* j2, T_balle* balle) {
 		init_balle(balle);
 		break;
 	case 2:
-		j1->score++;
+		j2->score++;
 		init_balle(balle);
 		break;
 	default:
@@ -171,15 +158,15 @@ void move_balle(T_obj* j1, T_obj* j2, T_balle* balle) {
 		balle->spx = -200; /*Limitation vitesse <*/
 	if (balle->spy > 200)
 		balle->spy = 200; /*Limitation vitesse V*/
-	else if (balle->spy > -200)
+	else if (balle->spy < -200)
 		balle->spy = -200; /*Limitation vitesse ^*/
 
 	/* Quand la balle est dans une trajectoire correcte
 	 * on actualise sa position sur la console
 	 * après avoir arrondit sa position
 	 */
-	balle->x = (unsigned char) balle->precx / 100;
-	balle->y = (unsigned char) balle->precy / 100;
+	balle->x = (unsigned char) (balle->precx / 100);
+	balle->y = (unsigned char) (balle->precy / 100);
 
 	if ((old_x != balle->x) || (old_y != balle->y)) {
 		move(old_x, old_y);

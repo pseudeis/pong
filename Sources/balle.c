@@ -55,8 +55,13 @@ void move_balle(T_obj* j1, T_obj* j2, T_balle* balle) {
 	 *Si la balle traverse, on gère le rebond
 	 * GROS PAVE INCOMING
 	 */
+	/*Gestion des collisions coins*/
+	if(((balle->precx<=500)&&(balle->precy<=100))||((balle->precx>=7500)&&(balle->precy<=100))||((balle->precx<=500)&&(balle->precy>=2300))||((balle->precx>=7500)&&(balle->precy>=2300))){
+		balle->spy=~(balle->spy);
+		balle->spx=~(balle->spx);		
+	}
 	/*Gestion des collisions bords*/
-	if(balle->precy<=100){
+	else if(balle->precy<=100){
 		balle->spy=~(balle->spy);
 		balle->precy=100;
 	}
@@ -65,15 +70,10 @@ void move_balle(T_obj* j1, T_obj* j2, T_balle* balle) {
 		balle->spy=~(balle->spy);
 		balle->precy=2300;
 	}
-
-	balle->x = (unsigned char) balle->precx / 100;
-	balle->y = (unsigned char) balle->precy / 100;
-
-
 	/*Gestion des collisions raquettes*/
 	
 	/*RAQUETTE 1*/
-	if(balle->precx<=500){
+	else if(balle->precx<=500){
 		balle->precx=500;
 		balle->spx=~(balle->spx);
 		switch((balle->y)-(j1->y)){
@@ -115,7 +115,6 @@ void move_balle(T_obj* j1, T_obj* j2, T_balle* balle) {
 	}
 
 	/*RAQUETTE 2*/
-
 	else if(balle->precx>=7500){
 		balle->precx=7500;
 		balle->spx=~(balle->spx);

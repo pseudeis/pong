@@ -32,6 +32,7 @@
 #include "PTA.h"
 #include "PTD.h"
 #include "SCI.h"
+#include "TPM1.h"
 #include "bsp.h"
 #include "intro.h"
 #include "raquette.h"
@@ -62,7 +63,7 @@ void main(void) {
 	logo();
 
 	/*Appel de la fonction qui trace les bords dans move.c*/
-	init_decor();
+	/*init_decor();*/
 
 	/*Appel du compte 0->99 dans move.c*/
 	/*	compte(&compt);*/
@@ -71,7 +72,7 @@ void main(void) {
 	joueur_2.x = 75;
 	init_raquette(&joueur_1);
 	init_raquette(&joueur_2);
-	
+
 	init_balle(&balle);
 
 	/*Appel du compte 0->99 dans move.c*/
@@ -79,9 +80,12 @@ void main(void) {
 
 	for (;;) {
 
-		move_raquette1(&joueur_1);
-		move_raquette2(&joueur_2);
-		move_balle(&joueur_1, &joueur_2, &balle);
+		if (TPM1SC_TOF) {
+			TPM1SC_TOF=0;
+			move_raquette1(&joueur_1);
+			move_raquette2(&joueur_2);
+			move_balle(&joueur_1, &joueur_2, &balle);
+		}
 
 	}
 
@@ -91,10 +95,9 @@ void main(void) {
 	PEX_RTOS_START(); /* Startup of the selected RTOS. Macro is defined by the RTOS component. */
 #endif
 	/*** End of RTOS startup code.  ***/
-	/*** Processor Expert end of main routine. DON'T MODIFY THIS CODE!!! ***/
-	for (;;) {
-	}
-	/*** Processor Expert end of main routine. DON'T WRITE CODE BELOW!!! ***/
+  /*** Processor Expert end of main routine. DON'T MODIFY THIS CODE!!! ***/
+  for(;;){}
+  /*** Processor Expert end of main routine. DON'T WRITE CODE BELOW!!! ***/
 } /*** End of main routine. DO NOT MODIFY THIS TEXT!!! ***/
 
 /* END main */

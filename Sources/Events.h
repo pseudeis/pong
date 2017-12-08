@@ -37,6 +37,7 @@
 #include "PTA.h"
 #include "PTD.h"
 #include "SCI.h"
+#include "TPM1.h"
 
 
 /* END Events */

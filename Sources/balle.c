@@ -15,7 +15,7 @@ void init_balle(T_balle* balle) {
 	balle->y = HAUTEUR/2;
 	balle->precx = LARGEURP/2;
 	balle->precy = HAUTEURP/2;
-	balle->skin = '';
+	balle->skin = 'O';
 	move(balle->x, balle->y);
 	putc('O');
 	balle->spx = 200;

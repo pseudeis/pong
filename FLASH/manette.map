@@ -34,15 +34,15 @@ Entry point: 0xE004 (_EntryPoint)
 _startupData is allocated at 0xE090 and uses 6 Bytes
 extern struct _tagStartup {
   unsigned nofZeroOut     1
-  _Range   pZeroOut       0x80     1
-  _Copy    *toCopyDownBeg 0xE7C7
+  _Range   pZeroOut       0x80     21
+  _Copy    *toCopyDownBeg 0xE82D
 } _startupData;
 
 *********************************************************************************************
 SECTION-ALLOCATION SECTION
 Section Name                    Size  Type     From       To       Segment
 ---------------------------------------------------------------------------------------------
-.text                           1833     R     0xE09E     0xE7C6   ROM
+.text                           1935     R     0xE09E     0xE82C   ROM
 .abs_section_ffbd                  1     R     0xFFBD     0xFFBD   .absSeg0
 .abs_section_ffbf                  1     R     0xFFBF     0xFFBF   .absSeg1
 .abs_section_0                     1   N/I        0x0        0x0   .absSeg2
@@ -149,15 +149,16 @@ Section Name                    Size  Type     From       To       Segment
 .abs_section_1814                  2   N/I     0x1814     0x1815   .absSeg103
 .abs_section_1816                  2   N/I     0x1816     0x1817   .absSeg104
 .abs_section_ffce                 50     R     0xFFCE     0xFFFF   .absSeg105
+.bss                               1   R/W       0x80       0x80   RAM
 .startData                        14     R     0xE090     0xE09D   ROM
 .init                            144     R     0xE000     0xE08F   ROM
-.common                            1   R/W       0x80       0x80   RAM
-.stack                            64   R/W       0x81       0xC0   RAM
-.copy                              2     R     0xE7C7     0xE7C8   ROM
+.common                           20   R/W       0x81       0x94   RAM
+.stack                            64   R/W       0x95       0xD4   RAM
+.copy                              2     R     0xE82D     0xE82E   ROM
 
 Summary of section sizes per section type:
-READ_ONLY (R):         7FD (dec:     2045)
-READ_WRITE (R/W):       41 (dec:       65)
+READ_ONLY (R):         863 (dec:     2147)
+READ_WRITE (R/W):       55 (dec:       85)
 NO_INIT (N/I):          79 (dec:      121)
 
 *********************************************************************************************
@@ -171,36 +172,41 @@ OBJECT-ALLOCATION SECTION
 ---------------------------------------------------------------------------------------------
 MODULE:                 -- balle_c.obj --
 - PROCEDURES:
-     init_balle                                E09E      3A      58       2   .text       
-     move_balle                                E0D8     291     657      10   .text       
+     init_balle                                E09E      3C      60       2   .text       
+     move_balle                                E0DA     295     661      10   .text       
 - VARIABLES:
+     balle                                       81       B      11       2   .common     
 MODULE:                 -- bsp_c.obj --
 - PROCEDURES:
-     move                                      E369      B5     181      12   .text       
+     move                                      E36F      B5     181      16   .text       
 - VARIABLES:
 MODULE:                 -- intro_c.obj --
 - PROCEDURES:
-     logo                                      E41E       1       1       1   .text       
+     logo                                      E424       1       1       1   .text       
+     init_decor                                E425      5F      95       1   .text       
 - VARIABLES:
+     i.1                                         80       1       1      10   .bss        
 MODULE:                 -- main_c.obj --
 - PROCEDURES:
-     main                                      E41F      4B      75       1   .text       
+     main                                      E484      4C      76       1   .text       
 - VARIABLES:
 MODULE:                 -- raquette_c.obj --
 - PROCEDURES:
-     init_raquette                             E46A      46      70       2   .text       
-     move_raquette1                            E4B0      8A     138       1   .text       
-     move_raquette2                            E53A      8A     138       1   .text       
+     init_raquette                             E4D0      46      70       2   .text       
+     move_raquette1                            E516      8A     138       1   .text       
+     move_raquette2                            E5A0      8A     138       1   .text       
 - VARIABLES:
+     joueur_1                                    8C       4       4       4   .common     
+     joueur_2                                    90       4       4       4   .common     
 MODULE:                 -- start08_c.obj --
 - PROCEDURES:
-     loadByte                                  E5C4       E      14       5   .text       
-     Init                                      E5D2      71     113       1   .text       
-     _Startup                                  E643       9       9       1   .text       
+     loadByte                                  E62A       E      14       5   .text       
+     Init                                      E638      71     113       1   .text       
+     _Startup                                  E6A9       9       9       1   .text       
 - VARIABLES:
      _startupData                              E090       6       6       4   .startData  
 - LABELS:
-     __SEG_END_SSTACK                            C1       0       0       1               
+     __SEG_END_SSTACK                            D5       0       0       1               
 MODULE:                 -- Cpu_c.obj --
 - PROCEDURES:
      Cpu_Interrupt                             E000       4       4      24   .init       
@@ -209,7 +215,7 @@ MODULE:                 -- Cpu_c.obj --
 - VARIABLES:
      NVPROT_INIT                               FFBD       1       1       0   .abs_section_ffbd
      NVOPT_INIT                                FFBF       1       1       0   .abs_section_ffbf
-     CCR_lock                                    80       1       1       1   .common     
+     CCR_lock                                    94       1       1       1   .common     
 MODULE:                 -- IO_Map_c.obj --
 - PROCEDURES:
 - VARIABLES:
@@ -234,10 +240,10 @@ MODULE:                 -- IO_Map_c.obj --
      _ACMP2SC                                    1B       1       1       0   .abs_section_1b
      _SCIC1                                      22       1       1       1   .abs_section_22
      _SCIC2                                      23       1       1       2   .abs_section_23
-     _SCIS1                                      24       1       1      23   .abs_section_24
+     _SCIS1                                      24       1       1      27   .abs_section_24
      _SCIS2                                      25       1       1       1   .abs_section_25
      _SCIC3                                      26       1       1       1   .abs_section_26
-     _SCID                                       27       1       1      23   .abs_section_27
+     _SCID                                       27       1       1      27   .abs_section_27
      _SPIC1                                      28       1       1       0   .abs_section_28
      _SPIC2                                      29       1       1       0   .abs_section_29
      _SPIBR                                      2A       1       1       0   .abs_section_2a
@@ -318,19 +324,19 @@ MODULE:                 -- IO_Map_c.obj --
      _DBGF                                     1816       2       2       0   .abs_section_1816
 MODULE:                 -- PTA_c.obj --
 - PROCEDURES:
-     PTA_Init                                  E64C      15      21       1   .text       
+     PTA_Init                                  E6B2      15      21       1   .text       
 - VARIABLES:
 MODULE:                 -- PTD_c.obj --
 - PROCEDURES:
-     PTD_Init                                  E661      15      21       1   .text       
+     PTD_Init                                  E6C7      15      21       1   .text       
 - VARIABLES:
 MODULE:                 -- SCI_c.obj --
 - PROCEDURES:
-     SCI_Init                                  E676      16      22       1   .text       
+     SCI_Init                                  E6DC      16      22       1   .text       
 - VARIABLES:
 MODULE:                 -- TPM1_c.obj --
 - PROCEDURES:
-     TPM1_Init                                 E68C       D      13       1   .text       
+     TPM1_Init                                 E6F2       D      13       1   .text       
 - VARIABLES:
 MODULE:                 -- Vectors_c.obj --
 - PROCEDURES:
@@ -338,24 +344,24 @@ MODULE:                 -- Vectors_c.obj --
      _vect                                     FFCE      32      50       0   .abs_section_ffce
 MODULE:                 -- rtshc08.o (ansiis.lib) --
 - PROCEDURES:
-     _IDIVMOD                                  E699      69     105       1   .text       
-     _SPLITSIGN                                E702      1C      28       2   .text       
-     _IDIVS_STAR08                             E71E      1B      27       6   .text       
-     _IMODS_STAR08                             E739      25      37       4   .text       
-     _ICMP                                     E75E      16      22       3   .text       
-     _Jump_Table_Header_Addr                   E774      2F      47       1   .text       
-     _Jump_Table_Header_Offset                 E7A3      24      36       1   .text       
+     _IDIVMOD                                  E6FF      69     105       1   .text       
+     _SPLITSIGN                                E768      1C      28       2   .text       
+     _IDIVS_STAR08                             E784      1B      27       6   .text       
+     _IMODS_STAR08                             E79F      25      37       4   .text       
+     _ICMP                                     E7C4      16      22       3   .text       
+     _Jump_Table_Header_Addr                   E7DA      2F      47       1   .text       
+     _Jump_Table_Header_Offset                 E809      24      36       1   .text       
 - VARIABLES:
 
 *********************************************************************************************
 MODULE STATISTIC
   Name                                      Data   Code  Const
 ---------------------------------------------------------------------------------------------
-  balle_c.obj                                  0    715      0
+  balle_c.obj                                 11    721      0
   bsp_c.obj                                    0    181      0
-  intro_c.obj                                  0      1      0
-  main_c.obj                                   0     75      0
-  raquette_c.obj                               0    346      0
+  intro_c.obj                                  1     96      0
+  main_c.obj                                   0     76      0
+  raquette_c.obj                               8    346      0
   start08_c.obj                                0    136      0
   Cpu_c.obj                                    1    144      2
   IO_Map_c.obj                               121      0      0
@@ -371,14 +377,16 @@ MODULE STATISTIC
 SECTION USE IN OBJECT-ALLOCATION SECTION
 ---------------------------------------------------------------------------------------------
 SECTION: ".text"
-  init_balle move_balle move logo main init_raquette move_raquette1 
+  init_balle move_balle move logo init_decor main init_raquette move_raquette1 
   move_raquette2 loadByte Init _Startup PTA_Init PTD_Init SCI_Init TPM1_Init 
   _IDIVMOD _SPLITSIGN _IDIVS_STAR08 _IMODS_STAR08 _ICMP _Jump_Table_Header_Addr 
   _Jump_Table_Header_Offset 
+SECTION: ".bss"
+  i.1 
 SECTION: ".init"
   Cpu_Interrupt _EntryPoint PE_low_level_init 
 SECTION: ".common"
-  CCR_lock 
+  balle joueur_1 joueur_2 CCR_lock 
 SECTION: ".abs_section_ffbd"
   NVPROT_INIT 
 SECTION: ".abs_section_ffbf"
@@ -620,10 +628,10 @@ OBJECT LIST SORTED BY ADDRESS
      _SCIBD                                      20       2       2       2   .abs_section_20
      _SCIC1                                      22       1       1       1   .abs_section_22
      _SCIC2                                      23       1       1       2   .abs_section_23
-     _SCIS1                                      24       1       1      23   .abs_section_24
+     _SCIS1                                      24       1       1      27   .abs_section_24
      _SCIS2                                      25       1       1       1   .abs_section_25
      _SCIC3                                      26       1       1       1   .abs_section_26
-     _SCID                                       27       1       1      23   .abs_section_27
+     _SCID                                       27       1       1      27   .abs_section_27
      _SPIC1                                      28       1       1       0   .abs_section_28
      _SPIC2                                      29       1       1       0   .abs_section_29
      _SPIBR                                      2A       1       1       0   .abs_section_2a
@@ -657,7 +665,11 @@ OBJECT LIST SORTED BY ADDRESS
      _TPM2C1V                                    59       2       2       0   .abs_section_59
      _TPM2C2SC                                   5B       1       1       0   .abs_section_5b
      _TPM2C2V                                    5C       2       2       0   .abs_section_5c
-     CCR_lock                                    80       1       1       1   .common     
+     i.1                                         80       1       1      10   .bss        
+     balle                                       81       B      11       2   .common     
+     joueur_1                                    8C       4       4       4   .common     
+     joueur_2                                    90       4       4       4   .common     
+     CCR_lock                                    94       1       1       1   .common     
      _SRS                                      1800       1       1       0   .abs_section_1800
      _SBDFR                                    1801       1       1       0   .abs_section_1801
      _SOPT1                                    1802       1       1       1   .abs_section_1802
@@ -703,28 +715,29 @@ OBJECT LIST SORTED BY ADDRESS
      Cpu_Interrupt                             E000       4       4      24   .init       
      _EntryPoint                               E004      49      73       1   .init       
      PE_low_level_init                         E04D      43      67       1   .init       
-     init_balle                                E09E      3A      58       2   .text       
-     move_balle                                E0D8     291     657      10   .text       
-     move                                      E369      B5     181      12   .text       
-     logo                                      E41E       1       1       1   .text       
-     main                                      E41F      4B      75       1   .text       
-     init_raquette                             E46A      46      70       2   .text       
-     move_raquette1                            E4B0      8A     138       1   .text       
-     move_raquette2                            E53A      8A     138       1   .text       
-     loadByte                                  E5C4       E      14       5   .text       
-     Init                                      E5D2      71     113       1   .text       
-     _Startup                                  E643       9       9       1   .text       
-     PTA_Init                                  E64C      15      21       1   .text       
-     PTD_Init                                  E661      15      21       1   .text       
-     SCI_Init                                  E676      16      22       1   .text       
-     TPM1_Init                                 E68C       D      13       1   .text       
-     _IDIVMOD                                  E699      69     105       1   .text       
-     _SPLITSIGN                                E702      1C      28       2   .text       
-     _IDIVS_STAR08                             E71E      1B      27       6   .text       
-     _IMODS_STAR08                             E739      25      37       4   .text       
-     _ICMP                                     E75E      16      22       3   .text       
-     _Jump_Table_Header_Addr                   E774      2F      47       1   .text       
-     _Jump_Table_Header_Offset                 E7A3      24      36       1   .text       
+     init_balle                                E09E      3C      60       2   .text       
+     move_balle                                E0DA     295     661      10   .text       
+     move                                      E36F      B5     181      16   .text       
+     logo                                      E424       1       1       1   .text       
+     init_decor                                E425      5F      95       1   .text       
+     main                                      E484      4C      76       1   .text       
+     init_raquette                             E4D0      46      70       2   .text       
+     move_raquette1                            E516      8A     138       1   .text       
+     move_raquette2                            E5A0      8A     138       1   .text       
+     loadByte                                  E62A       E      14       5   .text       
+     Init                                      E638      71     113       1   .text       
+     _Startup                                  E6A9       9       9       1   .text       
+     PTA_Init                                  E6B2      15      21       1   .text       
+     PTD_Init                                  E6C7      15      21       1   .text       
+     SCI_Init                                  E6DC      16      22       1   .text       
+     TPM1_Init                                 E6F2       D      13       1   .text       
+     _IDIVMOD                                  E6FF      69     105       1   .text       
+     _SPLITSIGN                                E768      1C      28       2   .text       
+     _IDIVS_STAR08                             E784      1B      27       6   .text       
+     _IMODS_STAR08                             E79F      25      37       4   .text       
+     _ICMP                                     E7C4      16      22       3   .text       
+     _Jump_Table_Header_Addr                   E7DA      2F      47       1   .text       
+     _Jump_Table_Header_Offset                 E809      24      36       1   .text       
      NVPROT_INIT                               FFBD       1       1       0   .abs_section_ffbd
      NVOPT_INIT                                FFBF       1       1       0   .abs_section_ffbf
      _vect                                     FFCE      32      50       0   .abs_section_ffce
@@ -736,7 +749,7 @@ NOT USED PROCEDURES
 bsp_c.obj:
   clear_screen delay 
 intro_c.obj:
-  init_decor compte decompte 
+  compte decompte 
 rtshc08.o (ansiis.lib):
   _PUSH_ARGS_L _PUSH_ARGS_D _ENTER_UNARY_L _ENTER_UNARY_L64 _ENTER_UNARY_L64_4 
   _ENTER_BINARY_L _ENTER_BINARY_L_RC _ENTER_BINARY_L_LC _ENTER_BINARY_L64 
@@ -766,7 +779,7 @@ rtshc08.o (ansiis.lib):
 *********************************************************************************************
 COPYDOWN SECTION
 ---------------------------------------------------------------------------------------------
-------- ROM-ADDRESS: 0xE7C7 ---- SIZE       2 ---
+------- ROM-ADDRESS: 0xE82D ---- SIZE       2 ---
 Filling bytes inserted
  0000
 
@@ -783,8 +796,10 @@ move_balle                USES move_balle _Jump_Table_Header_Addr
                                 _Jump_Table_Header_Offset init_balle _IDIVS_STAR08 _ICMP move _SCIS1 
                                 _SCID 
 move                      USES _SCIS1 _SCID _IDIVS_STAR08 _IMODS_STAR08 
-main                      USES PE_low_level_init logo init_raquette init_balle 
-                                _TPM1SC move_raquette1 move_raquette2 move_balle 
+init_decor                USES i.1 move _SCIS1 _SCID 
+main                      USES PE_low_level_init logo init_decor joueur_1 
+                                joueur_2 init_raquette balle init_balle _TPM1SC 
+                                move_raquette1 move_raquette2 move_balle 
 init_raquette             USES move _SCIS1 _SCID _ICMP 
 move_raquette1            USES _PTAD move _SCIS1 _SCID 
 move_raquette2            USES _PTDD move _SCIS1 _SCID 
@@ -818,20 +833,24 @@ DEPENDENCY TREE
  |  |       
  |  +- logo                
  |  |    
- |  +- init_raquette       
+ |  +- init_decor          
  |  |  | 
  |  |  +- move                
- |  |  |  | 
- |  |  |  +- _IDIVS_STAR08       
- |  |  |  |  | 
- |  |  |  |  +- _SPLITSIGN          
- |  |  |  |     | 
- |  |  |  |     +- _IDIVMOD            
- |  |  |  |          
- |  |  |  +- _IMODS_STAR08       
- |  |  |     | 
- |  |  |     +- _SPLITSIGN           (see above)
- |  |  |        
+ |  |     | 
+ |  |     +- _IDIVS_STAR08       
+ |  |     |  | 
+ |  |     |  +- _SPLITSIGN          
+ |  |     |     | 
+ |  |     |     +- _IDIVMOD            
+ |  |     |          
+ |  |     +- _IMODS_STAR08       
+ |  |        | 
+ |  |        +- _SPLITSIGN           (see above)
+ |  |           
+ |  +- init_raquette       
+ |  |  | 
+ |  |  +- move                 (see above)
+ |  |  |  
  |  |  +- _ICMP               
  |  |       
  |  +- init_balle          
@@ -883,5 +902,5 @@ STATISTIC SECTION
 ExeFile:
 --------
 Number of blocks to be downloaded: 6
-Total size of all blocks to be downloaded: 2045
+Total size of all blocks to be downloaded: 2147
 

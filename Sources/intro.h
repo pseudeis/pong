@@ -15,6 +15,10 @@
 #include "PE_Error.h"
 #include "PE_Const.h"
 #include "IO_Map.h"
+#define HAUTEUR (24)
+#define LARGEUR (80)
+#define HAUTEURP (2400)
+#define LARGEURP (8000)
 
 typedef struct {
 	unsigned char x;

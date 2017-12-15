@@ -11,20 +11,23 @@
 #include "balle.h"
 
 void init_balle(T_balle* balle) {
-	balle->x = 40;
-	balle->y = 12;
-	balle->precx = 4000;
-	balle->precy = 1200;
-	balle->skin = 'O';
+	balle->x = LARGEUR/2;
+	balle->y = HAUTEUR/2;
+	balle->precx = LARGEURP/2;
+	balle->precy = HAUTEURP/2;
+	balle->skin = '';
 	move(balle->x, balle->y);
 	putc('O');
 	balle->spx = 200;
-	balle->spy = 20;
+	balle->spy = -20;
 }
 
 /*
  * Gestion vectorielle de la vitesse et de la position de la balle.
  */
+
+T_balle balle;
+
 
 void move_balle(T_obj* j1, T_obj* j2, T_balle* balle) {
 
@@ -47,12 +50,13 @@ void move_balle(T_obj* j1, T_obj* j2, T_balle* balle) {
 	 */
 	/*Gestion des collisions coins*/
 	/*if (((balle->precx <= 600) && (balle->precy <= 100))
-			|| ((balle->precx >= 7400) && (balle->precy <= 100))
-			|| ((balle->precx <= 600) && (balle->precy >= 2300))
-			|| ((balle->precx >= 7400) && (balle->precy >= 2300))) {
+			|| ((balle->precx >= LARGEURP-600) && (balle->precy <= 100))
+			|| ((balle->precx <= 600) && (balle->precy >= HAUTEUR-100))
+			|| ((balle->precx >= LARGEURP-600) && (balle->precy >= HAUTEUR-100))) {
 		balle->spy = ~(balle->spy);
 		balle->spx = ~(balle->spx);
 	}*/
+
 	/*Gestion des collisions bord supérieur*/
 	if (balle->precy <= 200) {
 		balle->spy = ~(balle->spy);
@@ -60,9 +64,9 @@ void move_balle(T_obj* j1, T_obj* j2, T_balle* balle) {
 	}
 
 	/*Gestion des collisions bord inférieur*/
-	else if (balle->precy >= 2300) {
+	else if (balle->precy >= HAUTEURP-100) {
 		balle->spy = ~(balle->spy);
-		balle->precy = 2300;
+		balle->precy = HAUTEURP-100;
 	}
 
 	/*Gestion des collisions raquettes*/
@@ -107,7 +111,7 @@ void move_balle(T_obj* j1, T_obj* j2, T_balle* balle) {
 	}
 
 	/*RAQUETTE 2*/
-	else if (balle->precx >= 7400) {
+	else if (balle->precx >= LARGEURP-600) {
 		balle->precx = 7300;
 		balle->spx = ~(balle->spx);
 		switch ((balle->y) - (j2->y)) {
@@ -152,6 +156,7 @@ void move_balle(T_obj* j1, T_obj* j2, T_balle* balle) {
 	case 1:
 		j1->score++;
 		init_balle(balle);
+		
 		break;
 	case 2:
 		j2->score++;
@@ -182,7 +187,7 @@ void move_balle(T_obj* j1, T_obj* j2, T_balle* balle) {
 		move(old_x, old_y);
 		putc(' ');
 		move(balle->x, balle->y);
-		putc('O');
+		putc(balle->skin);
 	}
 
 }

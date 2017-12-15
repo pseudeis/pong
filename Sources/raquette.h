@@ -12,4 +12,9 @@ void init_raquette(T_obj* raquette);
 void move_raquette1(T_obj* j1);
 void move_raquette2(T_obj* j2);
 
+extern T_obj joueur_1;
+extern T_obj joueur_2;
+
+
+
 #endif /* RAQUETTE_H_ */

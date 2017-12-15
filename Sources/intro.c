@@ -19,17 +19,17 @@ void logo(void) {
 }
 
 void init_decor(void) {
-	unsigned char i = 0;
-	for (i = 0; i < 80; i++) {
+	static unsigned char i = 0;
+	for (i = 0; i < LARGEUR; i++) {
 		move(i, 1);
 		putc('#');
 		/*Affichage de la ligne du haut*/
-		move(i, 24);
+		move(i, HAUTEUR);
 		putc('#');
 		/*Affichage de la ligne du bas*/
 	}
 
-	for (i = 0; i < 24; i++) {
+	for (i = 0; i < HAUTEUR; i++) {
 		move(1, i);
 		putc('#');
 		/*Affichage de la ligne de gauche*/

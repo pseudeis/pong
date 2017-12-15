@@ -48,11 +48,6 @@
 void main(void) {
 	/* Write your local variable definition here */
 
-	T_obj joueur_1;
-	T_obj joueur_2;
-	/*	T_obj compt;*/
-	T_balle balle;
-
 	/*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
 	PE_low_level_init();
 	/*** End of Processor Expert internal initialization.                    ***/
@@ -63,13 +58,13 @@ void main(void) {
 	logo();
 
 	/*Appel de la fonction qui trace les bords dans move.c*/
-	/*init_decor();*/
+	init_decor();
 
 	/*Appel du compte 0->99 dans move.c*/
 	/*	compte(&compt);*/
 
 	joueur_1.x = 5;
-	joueur_2.x = 75;
+	joueur_2.x = LARGEUR-5;
 	init_raquette(&joueur_1);
 	init_raquette(&joueur_2);
 

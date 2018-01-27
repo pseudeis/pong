@@ -19,6 +19,8 @@
 #define LARGEUR (80)
 #define HAUTEURP (2400)
 #define LARGEURP (8000)
+#define SCORE1 (20)
+#define SCORE2 (72)
 
 typedef struct {
 	unsigned char x;

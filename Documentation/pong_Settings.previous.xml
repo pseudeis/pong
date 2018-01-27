@@ -728,8 +728,8 @@ asm(BGND);
           </enumgroup>
           <TPM1_Clock_Gate v="Enabled" />
           <Prescaler v="8" />
-          <Modulo_counter v="5000" />
-          <Period v="9.538 ms" />
+          <Modulo_counter v="15000" />
+          <Period v="28.612 ms" />
         </group>
         <Aligned v="Edge" />
         <list name="Channels" v="0">

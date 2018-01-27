@@ -54,7 +54,7 @@ void main(void) {
 
 	/* Write your code here */
 	/* For example: for(;;) { } */
-
+	clear_screen();
 	logo();
 
 	/*Appel de la fonction qui trace les bords dans move.c*/
@@ -67,6 +67,8 @@ void main(void) {
 	joueur_2.x = LARGEUR-5;
 	init_raquette(&joueur_1);
 	init_raquette(&joueur_2);
+	init_score();
+
 
 	init_balle(&balle);
 
@@ -81,7 +83,6 @@ void main(void) {
 			move_raquette2(&joueur_2);
 			move_balle(&joueur_1, &joueur_2, &balle);
 		}
-
 	}
 
 	/*** Don't write any code pass this line, or it will be deleted during code generation. ***/

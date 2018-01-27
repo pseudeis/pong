@@ -9,6 +9,7 @@
 #define RAQUETTE_H_
 
 void init_raquette(T_obj* raquette);
+void init_score(void);
 void move_raquette1(T_obj* j1);
 void move_raquette2(T_obj* j2);
 

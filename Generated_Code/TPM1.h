@@ -6,7 +6,7 @@
 **     Component   : Init_TPM
 **     Version     : Component 01.084, Driver 01.20, CPU db: 3.00.049
 **     Compiler    : CodeWarrior HCS08 C Compiler
-**     Date/Time   : 2017-12-08, 16:47, # CodeGen: 7
+**     Date/Time   : 2017-12-22, 15:40, # CodeGen: 17
 **     Abstract    :
 **          This file implements the TPM (TPM1) module initialization
 **          according to the Peripheral Initialization Component settings,
